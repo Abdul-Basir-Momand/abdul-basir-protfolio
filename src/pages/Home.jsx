@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { profile, skills } from "../assets/data/portfolio";
+import { profile, skills } from "../data/portfolio";
 import profileImage from "../assets/momand.jpeg";
 import { useEffect, useState } from "react";
 
@@ -10,31 +10,37 @@ export default function Home() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    let timeout;
+    let timer;
 
+    // Typing
     if (!isDeleting && typedName.length < fullName.length) {
-      // Typing
-      timeout = setTimeout(() => {
-        setTypedName(fullName.slice(0, typedName.length + 1));
+      timer = setTimeout(() => {
+        setTypedName(fullName.substring(0, typedName.length + 1));
       }, 120);
-    } else if (!isDeleting && typedName.length === fullName.length) {
-      // Wait 5 seconds after the full name is displayed
-      timeout = setTimeout(() => {
-        setIsDeleting(true);
-      }, 5000);
-    } else if (isDeleting && typedName.length > 0) {
-      // Deleting
-      timeout = setTimeout(() => {
-        setTypedName(fullName.slice(0, typedName.length - 1));
-      }, 70);
-    } else if (isDeleting && typedName.length === 0) {
-      // Start typing again
-      timeout = setTimeout(() => {
-        setIsDeleting(false);
-      }, 500);
     }
 
-    return () => clearTimeout(timeout);
+    // Full name displayed for 5 seconds
+    else if (!isDeleting && typedName.length === fullName.length) {
+      timer = setTimeout(() => {
+        setIsDeleting(true);
+      }, 5000);
+    }
+
+    // Deleting
+    else if (isDeleting && typedName.length > 0) {
+      timer = setTimeout(() => {
+        setTypedName(fullName.substring(0, typedName.length - 1));
+      }, 70);
+    }
+
+    // Restart
+    else if (isDeleting && typedName.length === 0) {
+      timer = setTimeout(() => {
+        setIsDeleting(false);
+      }, 700);
+    }
+
+    return () => clearTimeout(timer);
   }, [typedName, isDeleting]);
 
   return (
@@ -44,6 +50,7 @@ export default function Home() {
       ====================================================== */}
       <section className="hero">
         <div className="hero-grid-bg"></div>
+
         <div className="hero-glow hero-glow-one"></div>
         <div className="hero-glow hero-glow-two"></div>
 
@@ -109,7 +116,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* RIGHT IMAGE */}
+          {/* =================================================
+              RIGHT IMAGE
+          ================================================== */}
           <div className="hero-image-container">
             <div className="image-ring image-ring-one"></div>
             <div className="image-ring image-ring-two"></div>
@@ -127,6 +136,7 @@ export default function Home() {
             {/* FLOATING CARD */}
             <div className="floating-card floating-card-top">
               <span className="floating-icon">{"</>"}</span>
+
               <div>
                 <strong>Full Stack</strong>
                 <small>Developer</small>
@@ -135,6 +145,7 @@ export default function Home() {
 
             <div className="floating-card floating-card-bottom">
               <span className="floating-icon">✓</span>
+
               <div>
                 <strong>Clean Code</strong>
                 <small>Modern Solutions</small>
@@ -185,6 +196,7 @@ export default function Home() {
 
                 <div className="skill-content">
                   <h3>{skill.name}</h3>
+
                   <p>{skill.level}</p>
                 </div>
 

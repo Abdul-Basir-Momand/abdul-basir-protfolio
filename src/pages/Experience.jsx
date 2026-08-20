@@ -1,4 +1,4 @@
-import { experiences } from "../assets/data/portfolio";
+import { experiences } from "../data/portfolio";
 import SectionTitle from "../components/SectionTitle";
 
 export default function Experience() {

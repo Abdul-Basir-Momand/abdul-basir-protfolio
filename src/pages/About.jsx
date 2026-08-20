@@ -1,4 +1,4 @@
-import { profile, education } from "../assets/data/portfolio";
+import { profile, education } from "../data/portfolio";
 import SectionTitle from "../components/SectionTitle";
 
 export default function About() {

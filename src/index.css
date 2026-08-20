@@ -275,48 +275,38 @@ textarea {
 }
 
 /* =========================================================
-   MODERN HERO
+   HERO
 ========================================================= */
 
 .hero {
   position: relative;
-  min-height: 720px;
+  min-height: 690px;
+
   display: flex;
   align-items: center;
-  overflow: hidden;
+
   padding: 100px 0;
+
+  overflow: hidden;
+
   color: white;
 
   background:
     radial-gradient(
-      circle at 15% 20%,
+      circle at 10% 20%,
       rgba(37, 99, 235, 0.18),
-      transparent 30%
+      transparent 35%
     ),
     radial-gradient(
-      circle at 85% 80%,
-      rgba(124, 58, 237, 0.15),
-      transparent 30%
+      circle at 90% 80%,
+      rgba(124, 58, 237, 0.18),
+      transparent 35%
     ),
     #020617;
 }
 
-.hero-container {
-  position: relative;
-  z-index: 5;
-
-  width: 100%;
-
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-
-  align-items: center;
-
-  gap: 70px;
-}
-
 /* =========================================================
-   HERO GRID BACKGROUND
+   GRID BACKGROUND
 ========================================================= */
 
 .hero-grid-bg {
@@ -346,26 +336,60 @@ textarea {
   filter: blur(90px);
 
   pointer-events: none;
+
+  animation: glowMove 8s ease-in-out infinite alternate;
 }
 
 .hero-glow-one {
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
 
-  top: -100px;
-  left: -80px;
+  top: -150px;
+  left: -100px;
 
   background: rgba(37, 99, 235, 0.16);
 }
 
 .hero-glow-two {
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
 
-  right: -120px;
-  bottom: -120px;
+  right: -150px;
+  bottom: -180px;
 
-  background: rgba(124, 58, 237, 0.13);
+  background: rgba(124, 58, 237, 0.14);
+
+  animation-delay: 2s;
+}
+
+@keyframes glowMove {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(30px, 30px) scale(1.1);
+  }
+}
+
+/* =========================================================
+   HERO CONTAINER
+========================================================= */
+
+.hero-container {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: 1.1fr 0.9fr;
+
+  align-items: center;
+
+  gap: 70px;
 }
 
 /* =========================================================
@@ -373,12 +397,10 @@ textarea {
 ========================================================= */
 
 .hero-content {
-  position: relative;
-
-  animation: heroContentIn 0.9s ease forwards;
+  animation: heroContent 0.8s ease forwards;
 }
 
-@keyframes heroContentIn {
+@keyframes heroContent {
   from {
     opacity: 0;
     transform: translateY(25px);
@@ -399,25 +421,27 @@ textarea {
 
   align-items: center;
 
-  gap: 10px;
+  gap: 9px;
 
-  padding: 8px 14px;
+  padding: 8px 15px;
 
-  margin-bottom: 22px;
-
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  margin-bottom: 20px;
 
   border-radius: 50px;
 
-  background: rgba(255, 255, 255, 0.04);
-
   color: #cbd5e1;
+
+  background: rgba(255, 255, 255, 0.05);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(12px);
 
   font-size: 12px;
 
   font-weight: 600;
 
-  backdrop-filter: blur(12px);
+  letter-spacing: 0.3px;
 }
 
 .status-dot {
@@ -429,7 +453,7 @@ textarea {
   background: #22c55e;
 
   box-shadow:
-    0 0 0 4px rgba(34, 197, 94, 0.1),
+    0 0 0 4px rgba(34, 197, 94, 0.12),
     0 0 15px rgba(34, 197, 94, 0.5);
 
   animation: statusPulse 2s infinite;
@@ -442,16 +466,16 @@ textarea {
   }
 
   50% {
-    opacity: 0.45;
+    opacity: 0.4;
   }
 }
 
 /* =========================================================
-   HERO NAME
+   SMALL TITLE
 ========================================================= */
 
 .hero-small {
-  margin-bottom: 5px;
+  margin: 0 0 8px;
 
   color: #94a3b8;
 
@@ -459,6 +483,10 @@ textarea {
 
   font-weight: 500;
 }
+
+/* =========================================================
+   NAME
+========================================================= */
 
 .hero-name {
   min-height: 76px;
@@ -469,13 +497,19 @@ textarea {
 
   line-height: 1.05;
 
-  letter-spacing: -2px;
-
   font-weight: 850;
+
+  letter-spacing: -2.5px;
+
+  color: #f8fafc;
+
+  white-space: nowrap;
 }
 
 .typing-name {
-  background: linear-gradient(135deg, #60a5fa, #818cf8 50%, #c084fc);
+  display: inline-block;
+
+  background: linear-gradient(135deg, #60a5fa 0%, #818cf8 45%, #c084fc 100%);
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -501,22 +535,22 @@ textarea {
     opacity: 1;
   }
 
-  50%,
+  46%,
   100% {
     opacity: 0;
   }
 }
 
 /* =========================================================
-   HERO ROLE
+   ROLE
 ========================================================= */
 
 .hero-role {
-  margin-top: 18px;
+  margin: 20px 0 0;
 
   color: #e2e8f0;
 
-  font-size: 25px;
+  font-size: 24px;
 
   line-height: 1.4;
 
@@ -528,7 +562,7 @@ textarea {
 ========================================================= */
 
 .hero-description {
-  max-width: 620px;
+  max-width: 600px;
 
   margin-top: 18px;
 
@@ -554,16 +588,19 @@ textarea {
 }
 
 .btn {
+  position: relative;
+
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
   gap: 10px;
 
   min-height: 48px;
 
-  padding: 12px 22px;
+  padding: 12px 21px;
 
   border-radius: 9px;
 
@@ -571,21 +608,29 @@ textarea {
 
   font-weight: 700;
 
-  transition: all 0.3s ease;
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
-
   color: white;
 
-  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.25);
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
 }
 
 .btn-primary:hover {
   transform: translateY(-3px);
 
-  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.35);
 }
 
 .btn-arrow {
@@ -599,21 +644,21 @@ textarea {
 }
 
 .btn-outline {
-  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #e2e8f0;
 
   background: rgba(255, 255, 255, 0.03);
 
-  color: #e2e8f0;
+  border: 1px solid rgba(148, 163, 184, 0.3);
 
   backdrop-filter: blur(10px);
 }
 
 .btn-outline:hover {
+  color: white;
+
   background: rgba(255, 255, 255, 0.08);
 
-  border-color: rgba(148, 163, 184, 0.5);
-
-  color: white;
+  border-color: rgba(148, 163, 184, 0.6);
 
   transform: translateY(-3px);
 }
@@ -629,7 +674,7 @@ textarea {
 
   gap: 10px;
 
-  margin-top: 30px;
+  margin-top: 28px;
 }
 
 .social-link {
@@ -641,19 +686,19 @@ textarea {
 
   padding: 8px 12px;
 
-  border: 1px solid rgba(148, 163, 184, 0.15);
-
   border-radius: 7px;
 
-  background: rgba(255, 255, 255, 0.03);
-
   color: #94a3b8;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  border: 1px solid rgba(148, 163, 184, 0.12);
 
   font-size: 12px;
 
   font-weight: 600;
 
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .social-link:hover {
@@ -661,39 +706,56 @@ textarea {
 
   border-color: rgba(96, 165, 250, 0.35);
 
-  background: rgba(37, 99, 235, 0.08);
+  background: rgba(37, 99, 235, 0.1);
 
   transform: translateY(-3px);
 }
 
 /* =========================================================
-   HERO IMAGE
+   IMAGE CONTAINER
 ========================================================= */
 
 .hero-image-container {
   position: relative;
 
-  min-height: 480px;
+  min-height: 450px;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 }
+
+/* =========================================================
+   IMAGE GLOW
+========================================================= */
 
 .hero-image-glow {
   position: absolute;
 
-  width: 340px;
-  height: 340px;
+  width: 320px;
+  height: 320px;
 
   border-radius: 50%;
 
-  background: #2563eb;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
 
-  filter: blur(90px);
+  filter: blur(70px);
 
-  opacity: 0.2;
+  opacity: 0.25;
+
+  animation: imageGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes imageGlow {
+  from {
+    transform: scale(0.9);
+  }
+
+  to {
+    transform: scale(1.12);
+  }
 }
 
 /* =========================================================
@@ -705,32 +767,44 @@ textarea {
 
   border-radius: 50%;
 
-  border: 1px solid rgba(96, 165, 250, 0.25);
+  border: 1px solid rgba(96, 165, 250, 0.2);
 }
 
 .image-ring-one {
-  width: 410px;
-  height: 410px;
+  width: 390px;
+  height: 390px;
 
-  animation: rotateRing 18s linear infinite;
+  animation: ringRotate 15s linear infinite;
 }
 
 .image-ring-two {
-  width: 460px;
-  height: 460px;
+  width: 450px;
+  height: 450px;
 
-  border-color: rgba(124, 58, 237, 0.18);
+  border-style: dashed;
 
-  animation: rotateRing 25s linear infinite reverse;
+  border-color: rgba(124, 58, 237, 0.16);
+
+  animation: ringRotateReverse 20s linear infinite;
 }
 
-@keyframes rotateRing {
+@keyframes ringRotate {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0);
   }
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes ringRotateReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0);
   }
 }
 
@@ -753,21 +827,20 @@ textarea {
   background: linear-gradient(135deg, #2563eb, #7c3aed, #4f46e5);
 
   box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.45),
-    0 0 60px rgba(37, 99, 235, 0.2);
+    0 30px 80px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(37, 99, 235, 0.18);
 
-  animation: imageFloat 5s ease-in-out infinite;
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
 }
 
-@keyframes imageFloat {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
+.image-card:hover {
+  transform: scale(1.025);
 
-  50% {
-    transform: translateY(-10px);
-  }
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.55),
+    0 0 70px rgba(37, 99, 235, 0.25);
 }
 
 .hero-image {
@@ -780,7 +853,7 @@ textarea {
 
   border-radius: 50%;
 
-  border: 5px solid #020617;
+  border: 6px solid #020617;
 
   background: #0f172a;
 }
@@ -802,21 +875,55 @@ textarea {
 
   padding: 12px 15px;
 
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
   border-radius: 12px;
 
   background: rgba(15, 23, 42, 0.85);
 
-  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(14px);
 
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+
+  animation: floatingCard 4s ease-in-out infinite;
+}
+
+.floating-card-top {
+  top: 65px;
+  right: 0;
+}
+
+.floating-card-bottom {
+  bottom: 55px;
+  left: 0;
+
+  animation-delay: 1.5s;
+}
+
+.floating-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  color: #60a5fa;
+
+  background: rgba(37, 99, 235, 0.12);
+
+  font-size: 15px;
+
+  font-weight: 800;
 }
 
 .floating-card strong {
   display: block;
 
-  color: white;
+  color: #f8fafc;
 
   font-size: 12px;
 }
@@ -831,41 +938,7 @@ textarea {
   font-size: 10px;
 }
 
-.floating-icon {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 36px;
-  height: 36px;
-
-  border-radius: 9px;
-
-  background: rgba(37, 99, 235, 0.15);
-
-  color: #60a5fa;
-
-  font-size: 12px;
-
-  font-weight: 800;
-}
-
-.floating-card-top {
-  top: 55px;
-  right: 0;
-
-  animation: floatingTop 4s ease-in-out infinite;
-}
-
-.floating-card-bottom {
-  bottom: 65px;
-  left: 0;
-
-  animation: floatingBottom 4.5s ease-in-out infinite;
-}
-
-@keyframes floatingTop {
+@keyframes floatingCard {
   0%,
   100% {
     transform: translateY(0);
@@ -876,19 +949,8 @@ textarea {
   }
 }
 
-@keyframes floatingBottom {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(10px);
-  }
-}
-
 /* =========================================================
-   MODERN STATS
+   STATS
 ========================================================= */
 
 .stats-section {
@@ -896,7 +958,7 @@ textarea {
 
   z-index: 20;
 
-  margin-top: -45px;
+  margin-top: -50px;
 
   padding-bottom: 20px;
 }
@@ -906,7 +968,7 @@ textarea {
 
   grid-template-columns: repeat(3, 1fr);
 
-  gap: 18px;
+  gap: 20px;
 }
 
 .stat-card {
@@ -918,15 +980,15 @@ textarea {
 
   padding: 25px;
 
-  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.96);
 
   border: 1px solid #e2e8f0;
 
-  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.07);
 
-  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.07);
-
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .stat-card:hover {
@@ -934,15 +996,15 @@ textarea {
 
   border-color: #bfdbfe;
 
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.1);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1);
 }
 
 .stat-number {
-  font-size: 34px;
-
-  font-weight: 850;
+  font-size: 36px;
 
   line-height: 1;
+
+  font-weight: 800;
 
   background: linear-gradient(135deg, #2563eb, #7c3aed);
 
@@ -955,7 +1017,7 @@ textarea {
 .stat-info p {
   margin: 0;
 
-  color: #334155;
+  color: #0f172a;
 
   font-size: 14px;
 
@@ -973,12 +1035,60 @@ textarea {
 }
 
 /* =========================================================
-   MODERN SKILLS
+   SKILLS
 ========================================================= */
 
 .skills-section {
   background: #f8fafc;
 }
+
+.section-title {
+  max-width: 700px;
+
+  margin: 0 auto 50px;
+
+  text-align: center;
+}
+
+.section-label {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  color: #2563eb;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.section-title h2 {
+  margin: 0 0 13px;
+
+  color: #0f172a;
+
+  font-size: 40px;
+
+  line-height: 1.2;
+
+  letter-spacing: -1px;
+}
+
+.section-title p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   SKILLS GRID
+========================================================= */
 
 .skills-grid {
   display: grid;
@@ -995,7 +1105,7 @@ textarea {
 
   align-items: center;
 
-  gap: 14px;
+  gap: 13px;
 
   padding: 20px;
 
@@ -1005,23 +1115,10 @@ textarea {
 
   border-radius: 13px;
 
-  transition: all 0.3s ease;
-
-  overflow: hidden;
-}
-
-.skill-card::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), transparent);
-
-  opacity: 0;
-
-  transition: opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .skill-card:hover {
@@ -1029,43 +1126,33 @@ textarea {
 
   border-color: #bfdbfe;
 
-  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
-}
-
-.skill-card:hover::before {
-  opacity: 1;
+  box-shadow: 0 15px 30px rgba(15, 23, 42, 0.08);
 }
 
 .skill-icon {
-  position: relative;
-  z-index: 2;
+  width: 44px;
+  height: 44px;
 
-  width: 45px;
-  height: 45px;
-
-  min-width: 45px;
+  min-width: 44px;
 
   display: flex;
 
   align-items: center;
   justify-content: center;
 
-  border-radius: 11px;
-
-  background: linear-gradient(135deg, #eff6ff, #eef2ff);
+  border-radius: 10px;
 
   color: #2563eb;
 
-  font-size: 18px;
+  background: linear-gradient(135deg, #eff6ff, #eef2ff);
+
+  font-size: 17px;
 
   font-weight: 800;
 }
 
 .skill-content {
-  position: relative;
-  z-index: 2;
-
-  flex: 1;
+  min-width: 0;
 }
 
 .skill-content h3 {
@@ -1077,7 +1164,7 @@ textarea {
 }
 
 .skill-content p {
-  margin-top: 3px;
+  margin: 3px 0 0;
 
   color: #64748b;
 
@@ -1085,14 +1172,13 @@ textarea {
 }
 
 .skill-arrow {
-  position: relative;
-  z-index: 2;
+  margin-left: auto;
 
   color: #94a3b8;
 
-  font-size: 18px;
+  font-size: 17px;
 
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 .skill-card:hover .skill-arrow {
@@ -1101,10 +1187,14 @@ textarea {
   transform: translateX(4px);
 }
 
-.skills-bottom {
-  text-align: center;
+/* =========================================================
+   SKILLS LINK
+========================================================= */
 
+.skills-bottom {
   margin-top: 35px;
+
+  text-align: center;
 }
 
 .text-link {
@@ -1113,6 +1203,8 @@ textarea {
   font-size: 14px;
 
   font-weight: 700;
+
+  transition: 0.3s;
 }
 
 .text-link:hover {
@@ -1127,7 +1219,7 @@ textarea {
   .hero {
     min-height: auto;
 
-    padding: 80px 0;
+    padding: 80px 0 100px;
   }
 
   .hero-container {
@@ -1158,14 +1250,6 @@ textarea {
     justify-content: center;
   }
 
-  .floating-card-top {
-    right: 10%;
-  }
-
-  .floating-card-bottom {
-    left: 10%;
-  }
-
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1177,7 +1261,7 @@ textarea {
 
 @media (max-width: 650px) {
   .hero {
-    padding: 65px 0 75px;
+    padding: 65px 0 85px;
   }
 
   .hero-container {
@@ -1189,8 +1273,8 @@ textarea {
   }
 
   .image-card {
-    width: 230px;
-    height: 230px;
+    width: 240px;
+    height: 240px;
   }
 
   .image-ring-one {
@@ -1204,46 +1288,8 @@ textarea {
   }
 
   .hero-image-glow {
-    width: 220px;
-    height: 220px;
-  }
-
-  .hero-name {
-    min-height: 52px;
-
-    font-size: 38px;
-
-    letter-spacing: -1.5px;
-  }
-
-  .hero-role {
-    font-size: 20px;
-  }
-
-  .hero-description {
-    font-size: 14px;
-
-    line-height: 1.75;
-  }
-
-  .hero-buttons {
-    flex-direction: row;
-
-    width: 100%;
-  }
-
-  .hero-buttons .btn {
-    flex: 1;
-
-    width: auto;
-
-    padding: 11px 12px;
-
-    font-size: 13px;
-  }
-
-  .social-links {
-    flex-wrap: wrap;
+    width: 230px;
+    height: 230px;
   }
 
   .floating-card {
@@ -1251,55 +1297,152 @@ textarea {
   }
 
   .floating-card-top {
-    top: 5px;
-    right: 0;
+    top: 25px;
+    right: 2%;
   }
 
   .floating-card-bottom {
-    bottom: 10px;
-    left: 0;
+    bottom: 15px;
+    left: 2%;
+  }
+
+  .hero-small {
+    font-size: 16px;
+  }
+
+  .hero-name {
+    min-height: 48px;
+
+    font-size: 40px;
+
+    letter-spacing: -1.5px;
+
+    white-space: normal;
+  }
+
+  .hero-role {
+    margin-top: 15px;
+
+    font-size: 20px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+  /*
+    IMPORTANT:
+    Buttons remain SIDE BY SIDE on mobile.
+  */
+  .hero-buttons {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: center;
+
+    gap: 8px;
+  }
+
+  .hero-buttons .btn {
+    width: auto;
+
+    flex: 1;
+
+    max-width: 180px;
+
+    padding: 11px 12px;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+  }
+
+  .btn-arrow {
+    font-size: 15px;
+  }
+
+  .social-links {
+    flex-wrap: wrap;
+
+    gap: 7px;
+  }
+
+  .social-link {
+    font-size: 11px;
+
+    padding: 7px 10px;
   }
 
   .stats-section {
-    margin-top: -25px;
+    margin-top: -30px;
   }
 
   .stats-grid {
     grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 20px;
   }
 
   .skills-grid {
     grid-template-columns: 1fr;
   }
 
+  .section-title {
+    margin-bottom: 35px;
+  }
+
   .section-title h2 {
     font-size: 32px;
+  }
+
+  .section-title p {
+    font-size: 14px;
   }
 }
 
 /* =========================================================
-   EXTRA SMALL SCREEN
+   VERY SMALL SCREENS
 ========================================================= */
 
 @media (max-width: 400px) {
-  .hero-name {
-    font-size: 32px;
+  .hero {
+    padding-top: 55px;
+  }
 
-    min-height: 45px;
+  .hero-name {
+    font-size: 34px;
   }
 
   .hero-role {
     font-size: 18px;
   }
 
+  .hero-description {
+    font-size: 13px;
+  }
+
+  /*
+    Keep buttons side-by-side even on XS.
+  */
   .hero-buttons {
-    gap: 8px;
+    gap: 6px;
   }
 
   .hero-buttons .btn {
-    padding: 10px 8px;
+    min-height: 44px;
 
-    font-size: 12px;
+    padding: 9px 8px;
+
+    font-size: 11px;
   }
 
   .image-card {
@@ -1308,13 +1451,13 @@ textarea {
   }
 
   .image-ring-one {
-    width: 245px;
-    height: 245px;
+    width: 235px;
+    height: 235px;
   }
 
   .image-ring-two {
-    width: 275px;
-    height: 275px;
+    width: 270px;
+    height: 270px;
   }
 
   .floating-card {
@@ -1327,6 +1470,28 @@ textarea {
 
   .floating-card-bottom {
     left: -5px;
+  }
+
+  .stat-number {
+    font-size: 30px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero *,
+  .hero-glow,
+  .image-ring,
+  .hero-image-glow,
+  .floating-card,
+  .status-dot,
+  .typing-cursor {
+    animation: none !important;
+
+    transition: none !important;
   }
 }
 

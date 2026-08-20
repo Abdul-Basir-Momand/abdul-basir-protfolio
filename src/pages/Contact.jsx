@@ -1,6 +1,6 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { profile } from "../assets/data/portfolio";
+import { profile } from "../data/portfolio";
 import SectionTitle from "../components/SectionTitle";
 
 // ================================

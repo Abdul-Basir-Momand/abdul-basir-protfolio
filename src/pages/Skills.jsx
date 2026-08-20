@@ -1,4 +1,4 @@
-import { skills } from "../assets/data/portfolio";
+import { skills } from "../data/portfolio";
 import SectionTitle from "../components/SectionTitle";
 
 export default function Skills() {

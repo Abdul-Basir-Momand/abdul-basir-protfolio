@@ -1,4 +1,4 @@
-import { projects } from "../assets/data/portfolio";
+import { projects } from "../data/portfolio";
 import ProjectCard from "../components/ProjectCard";
 import SectionTitle from "../components/SectionTitle";
 
