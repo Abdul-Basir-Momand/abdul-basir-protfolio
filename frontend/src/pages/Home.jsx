@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { profile, skills } from "../data/portfolio";
-import profileImage from "../assets/image.";
+import profileImage from "../assets/momand.jpeg";
 import { useEffect, useState } from "react";
 
 export default function Home() {
